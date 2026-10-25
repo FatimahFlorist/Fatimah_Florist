@@ -87,17 +87,37 @@
 
                     <!-- Dropdown Khusus Buket Uang -->
                     <div class="modal-options" id="moneyOptionsContainer" style="display: none;">
-                        <label>Pilih Jumlah Lembar Uang (Pricelist Jasa):</label>
-                        <select id="moneySelect">
-                            <option value="100000" data-text="1 - 10 lembar (Rp 100.000)">1 - 10 lembar</option>
-                            <option value="150000" data-text="11 - 20 lembar (Rp 150.000)">11 - 20 lembar</option>
-                            <option value="200000" data-text="21 - 30 lembar (Rp 200.000)">21 - 30 lembar</option>
-                            <option value="250000" data-text="31 - 40 lembar (Rp 250.000)">31 - 40 lembar</option>
-                            <option value="325000" data-text="41 - 50 lembar (Rp 325.000)">41 - 50 lembar</option>
-                            <option value="425000" data-text="51 - 60 lembar (Rp 425.000)">51 - 60 lembar</option>
-                            <option value="675000" data-text="61 - 75 lembar (Rp 675.000)">61 - 75 lembar</option>
-                            <option value="1150000" data-text="76 - 100 lembar (Rp 1.150.000)">76 - 100 lembar</option>
-                        </select>
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark);">1. Pilih Pecahan Lembar Uang (Rupiah):</label>
+                            <select id="billNominalSelect">
+                                <option value="2000">Rp 2.000 / lembar</option>
+                                <option value="5000">Rp 5.000 / lembar</option>
+                                <option value="10000">Rp 10.000 / lembar</option>
+                                <option value="20000">Rp 20.000 / lembar</option>
+                                <option value="50000" selected>Rp 50.000 / lembar</option>
+                                <option value="100000">Rp 100.000 / lembar</option>
+                            </select>
+                        </div>
+
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 5px; color: var(--text-dark);">2. Pilih Jumlah Lembar :</label>
+                            <select id="moneySelect">
+                                <option value="100000" data-sheets="10" data-text="1 - 10 lembar ">1 - 10 lembar </option>
+                                <option value="150000" data-sheets="20" data-text="11 - 20 lembar ">11 - 20 lembar </option>
+                                <option value="200000" data-sheets="30" data-text="21 - 30 lembar ">21 - 30 lembar </option>
+                                <option value="250000" data-sheets="40" data-text="31 - 40 lembar ">31 - 40 lembar </option>
+                                <option value="325000" data-sheets="50" data-text="41 - 50 lembar ">41 - 50 lembar </option>
+                                <option value="425000" data-sheets="60" data-text="51 - 60 lembar ">51 - 60 lembar </option>
+                                <option value="675000" data-sheets="75" data-text="61 - 75 lembar ">61 - 75 lembar </option>
+                                <option value="1150000" data-sheets="100" data-text="76 - 100 lembar ">76 - 100 lembar </option>
+                            </select>
+                        </div>
+
+                        <!-- Rincian Biaya Realtime -->
+                        <div id="moneyBreakdown" style="background: rgba(197, 160, 89, 0.1); border: 1px dashed var(--accent-gold); padding: 10px; border-radius: 8px; font-size: 0.8rem; margin-bottom: 12px;">
+                            <div>Jenis Uang: <strong id="cashTotalText">Rp 0</strong></div>
+                            <div>Rentang Lembar: <strong id="serviceFeeText">-</strong></div>
+                        </div>
                     </div>
 
                     <a href="#" id="modalWhatsApp" class="wa-order-btn" target="_blank">
