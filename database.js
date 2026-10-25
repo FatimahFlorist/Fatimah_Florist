@@ -970,7 +970,7 @@ const products = [
 // Nomor WhatsApp Admin Fatimah Florist
 const adminWhatsApp = "628895138447";
 
-// DOM Elements
+// DOM Elements Utama
 const productGrid = document.getElementById('productGrid');
 const searchInput = document.getElementById('searchInput');
 const categoryList = document.getElementById('categoryList');
@@ -985,7 +985,15 @@ const modalPrice = document.getElementById('modalPrice');
 const modalDesc = document.getElementById('modalDesc');
 const moneyOptionsContainer = document.getElementById('moneyOptionsContainer');
 const moneySelect = document.getElementById('moneySelect');
+const billNominalSelect = document.getElementById('billNominalSelect');
+const cashTotalText = document.getElementById('cashTotalText');
+const serviceFeeText = document.getElementById('serviceFeeText');
 const modalWhatsApp = document.getElementById('modalWhatsApp');
+
+// DOM Elements untuk Lightbox
+const lightbox = document.getElementById('imageLightbox');
+const lightboxImg = document.getElementById('lightboxImg');
+const closeLightbox = document.querySelector('.close-lightbox');
 
 let activeProduct = null;
 
@@ -1016,7 +1024,7 @@ function displayProducts(productsToDisplay) {
             <div class="product-info">
                 <span class="product-category">${product.category}</span>
                 <h3 class="product-title">${product.name}</h3>
-                <div class="product-price">${formatRupiah(product.price)}${isMoney ? ' <small style="font-size:0.75rem; color:#777; font-weight:normal;">(Mulai)</small>' : ''}</div>
+                <div class="product-price">${isMoney ? '' : formatRupiah(product.price)}</div>
                 <button class="order-btn" onclick="event.stopPropagation(); openModal(${product.id})">
                     <i class="fa-brands fa-whatsapp"></i> Lihat / Pesan
                 </button>
@@ -1026,11 +1034,6 @@ function displayProducts(productsToDisplay) {
         productGrid.appendChild(card);
     });
 }
-
-// DOM Elements tambahan untuk Lightbox
-const lightbox = document.getElementById('imageLightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const closeLightbox = document.querySelector('.close-lightbox');
 
 // Buka Modal Detail Produk saat kartu diklik
 function openModal(productId) {
@@ -1042,17 +1045,14 @@ function openModal(productId) {
     modalTitle.textContent = activeProduct.name;
     modalDesc.textContent = activeProduct.description;
 
-    // Cek Apakah Produk Kategori "Buket Uang"
+    // Cek Apakah Kategori "Buket Uang"
     if (activeProduct.category === "Buket Uang") {
         moneyOptionsContainer.style.display = 'block';
-        moneySelect.selectedIndex = 0;
-        const currentPrice = parseInt(moneySelect.value);
-        const selectedText = moneySelect.options[0].getAttribute('data-text');
-
-        modalPrice.textContent = formatRupiah(currentPrice);
-        updateWhatsAppLink(activeProduct.name, formatRupiah(currentPrice), selectedText);
+        modalPrice.style.display = 'none'; // Sembunyikan elemen harga di modal untuk Buket Uang
+        calculateMoneyBouquetTotal();
     } else {
         moneyOptionsContainer.style.display = 'none';
+        modalPrice.style.display = 'block';
         modalPrice.textContent = formatRupiah(activeProduct.price);
         updateWhatsAppLink(activeProduct.name, formatRupiah(activeProduct.price), null);
     }
@@ -1094,24 +1094,51 @@ lightboxImg.addEventListener('click', () => {
     }
 });
 
-// Ketika Pilihan Dropdown Lembar Uang Berubah
-moneySelect.addEventListener('change', () => {
-    if (!activeProduct) return;
-    const selectedPrice = parseInt(moneySelect.value);
-    const selectedText = moneySelect.options[moneySelect.selectedIndex].getAttribute('data-text');
+// Perhitungan Pilihan Buket Uang Tanpa Menampilkan Harga
+function calculateMoneyBouquetTotal() {
+    if (!activeProduct || activeProduct.category !== "Buket Uang") return;
 
-    modalPrice.textContent = formatRupiah(selectedPrice);
-    updateWhatsAppLink(activeProduct.name, formatRupiah(selectedPrice), selectedText);
-});
+    const nominalValue = parseInt(billNominalSelect.value) || 0;
+    const selectedOption = moneySelect.options[moneySelect.selectedIndex];
+    const serviceFee = parseInt(selectedOption.value) || 0;
+    const sheetCount = parseInt(selectedOption.getAttribute('data-sheets')) || 0;
+    const tierText = selectedOption.getAttribute('data-text');
+
+    const totalCash = nominalValue * sheetCount;
+    const grandTotal = totalCash + serviceFee;
+
+    // Menampilkan info pilihan di kotak rincian realtime
+    cashTotalText.textContent = formatRupiah(nominalValue) + " / lembar";
+    serviceFeeText.textContent = tierText;
+
+    const details = {
+        nominal: formatRupiah(nominalValue),
+        sheets: sheetCount,
+        totalCash: formatRupiah(totalCash),
+        serviceFee: formatRupiah(serviceFee),
+        tierText: tierText
+    };
+
+    updateWhatsAppLinkForMoney(activeProduct.name, formatRupiah(grandTotal), details);
+}
+
+// Event listener dropdown buket uang
+if (billNominalSelect) billNominalSelect.addEventListener('change', calculateMoneyBouquetTotal);
+if (moneySelect) moneySelect.addEventListener('change', calculateMoneyBouquetTotal);
 
 function updateWhatsAppLink(name, price, moneyOptionText) {
-    let message = `Halo Fatimah Florist, saya ingin memesan produk berikut:%0A%0A*Nama Produk:* ${name}%0A*Total Harga Jasa:* ${price}`;
-    
-    if (moneyOptionText) {
-        message += `%0A*Jumlah Lembar Uang:* ${moneyOptionText}`;
-    }
-    
+    let message = `Halo Fatimah Florist, saya ingin memesan produk berikut:%0A%0A*Nama Produk:* ${name}%0A*Total Harga:* ${price}`;
     message += `%0A%0AMohon info ketersediaan dan proses selanjutnya ya. Terima kasih!`;
+    modalWhatsApp.href = `https://wa.me/${adminWhatsApp}?text=${message}`;
+}
+
+function updateWhatsAppLinkForMoney(name, grandTotalFormatted, details) {
+    let message = `Halo Fatimah Florist, saya ingin memesan buket uang custom:%0A%0A`;
+    message += `*Nama Produk:* ${name}%0A`;
+    message += `*Pecahan Lembar Uang:* ${details.nominal}%0A`;
+    message += `*Jumlah Lembar:* ${details.sheets} lembar (%0A`;
+    message += `Mohon info ketersediaan slot dan rincian harga total via chat ya. Terima kasih!`;
+
     modalWhatsApp.href = `https://wa.me/${adminWhatsApp}?text=${message}`;
 }
 
@@ -1128,7 +1155,10 @@ categoryList.addEventListener('click', (e) => {
     }
 });
 
-searchInput.addEventListener('input', () => filterAndSearch());
+searchInput.getElementById = document.getElementById('searchInput');
+if(searchInput) {
+    searchInput.addEventListener('input', () => filterAndSearch());
+}
 
 function filterAndSearch() {
     const activeBtn = document.querySelector('.cat-btn.active');
