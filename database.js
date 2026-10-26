@@ -2,7 +2,153 @@
 // DATA KATALOG FATIMAH FLORIST (LENGKAP)
 // ==========================================
 const products = [
-    // --- BLOOM BOX ---
+    // --- BUKET & BLOOM BOX FRESH (BARU) ---
+    {
+        id: 122,
+        name: "Bouquet Rose Red Fresh",
+        category: "Buket Bunga",
+        price: 400000,
+        image: "IMAGE/fresh/Bouquet rose red fresh 400k.jpeg",
+        description: "Buket mawar merah segar pilihan berkualitas tinggi."
+    },
+    {
+        id: 123,
+        name: "Bouquet Lily Fresh",
+        category: "Buket Bunga",
+        price: 600000,
+        image: "IMAGE/fresh/Bouquet Lily Fresh 600k1.jpeg",
+        description: "Buket bunga lily segar harum mewah dan berkelas."
+    },
+    {
+        id: 124,
+        name: "Bouquet Lily & Rose Fresh",
+        category: "Buket Bunga",
+        price: 600000,
+        image: "IMAGE/fresh/Bouquet lily, rose fresh 600k.jpeg",
+        description: "Rangkaian spesial bunga lily dan mawar segar pilihan."
+    },
+    {
+        id: 125,
+        name: "Bouquet Krisan Fresh",
+        category: "Buket Bunga",
+        price: 280000,
+        image: "IMAGE/fresh/Bouquet kerisan fresh 280k.jpeg",
+        description: "Rangkaian bunga krisan segar rimbun dan cantik."
+    },
+    {
+        id: 126,
+        name: "Bouquet Rose Mix Baby Breath Fresh",
+        category: "Buket Bunga",
+        price: 350000,
+        image: "IMAGE/fresh/Bouquet rose mix baby breath Fresh 350k.jpeg",
+        description: "Buket mawar segar dikelilingi baby breath putih yang manis."
+    },
+    {
+        id: 127,
+        name: "Bouquet Lily Round Fresh",
+        category: "Buket Bunga",
+        price: 1500000,
+        image: "IMAGE/fresh/Bouquet Lily round fresh 1,5 jt.jpeg",
+        description: "Buket bundar lily segar eksklusif ukuran besar kelas premium."
+    },
+    {
+        id: 128,
+        name: "Bouquet Lily Mix Rose Fresh",
+        category: "Buket Bunga",
+        price: 500000,
+        image: "IMAGE/fresh/Bouquet Lily mix rose fresh 500k.jpeg",
+        description: "Kombinasi elegan antara bunga lily segar dan mawar."
+    },
+    {
+        id: 129,
+        name: "Bouquet Garbera Mix Baby Breath Fresh",
+        category: "Buket Bunga",
+        price: 250000,
+        image: "IMAGE/fresh/Bouquet grabera mix baby breath fresh 250k.jpeg",
+        description: "Perpaduan bunga garbera segar dan baby breath yang manis."
+    },
+    {
+        id: 130,
+        name: "Bouquet Blue Fresh",
+        category: "Buket Bunga",
+        price: 700000,
+        image: "IMAGE/fresh/Bouquet blue fresh 700k.jpeg",
+        description: "Buket besar nuansa biru segar mewah untuk momen sangat spesial."
+    },
+    {
+        id: 131,
+        name: "Bouquet Pom Pom Fresh",
+        category: "Buket Bunga",
+        price: 700000,
+        image: "IMAGE/fresh/Bouquet pom pom fresh 700k.jpeg",
+        description: "Buket bunga krisan pom pom segar ukuran besar yang unik dan meriah."
+    },
+    {
+        id: 132,
+        name: "Bouquet Sage Fresh",
+        category: "Buket Bunga",
+        price: 700000,
+        image: "IMAGE/fresh/Bouquet sage fresh 700k.jpeg",
+        description: "Buket besar nuansa sage green segar yang mewah."
+    },
+    {
+        id: 133,
+        name: "Bouquet Sunflower Fresh",
+        category: "Buket Bunga",
+        price: 300000,
+        image: "IMAGE/fresh/Bouquet sunflower fresh 300k.jpeg",
+        description: "Buket bunga matahari segar cerah penyemangat hari."
+    },
+    {
+        id: 134,
+        name: "Handbouquet Fresh",
+        category: "Buket Bunga",
+        price: 250000,
+        image: "IMAGE/fresh/Handbouquet fresh 250k.jpeg",
+        description: "Handbouquet bunga segar cantik untuk pengantin atau acara resmi."
+    },
+    {
+        id: 135,
+        name: "Bouquet Garbera Fresh",
+        category: "Buket Bunga",
+        price: 350000,
+        image: "IMAGE/fresh/Bouquet garbera fresh 350k.jpeg",
+        description: "Buket bunga garbera segar pilihan dengan balutan kertas cantik."
+    },
+    {
+        id: 136,
+        name: "BloomBox Rose Fresh",
+        category: "Bloom Box",
+        price: 350000,
+        image: "IMAGE/fresh/BloomBox rose fresh 350k.jpeg",
+        description: "Bloom box mawar segar pilihan yang cantik dan menawan."
+    },
+    {
+        id: 137,
+        name: "Bouquet Lily Fresh (Alt)",
+        category: "Buket Bunga",
+        price: 600000,
+        image: "IMAGE/fresh/Bouquet Lily fresh 600k.jpeg",
+        description: "Buket bunga lily segar pilihan."
+    },
+    {
+        id: 138,
+        name: "BloomBox Garbera Fresh",
+        category: "Bloom Box",
+        price: 500000,
+        image: "IMAGE/fresh/BloomBox garbera fresh 500k.jpeg",
+        description: "Bloom box spesial bunga garbera segar ukuran besar dan mewah."
+    },
+    {
+        id: 139,
+        name: "BloomBox Lily Fresh",
+        category: "Bloom Box",
+        price: 650000,
+        image: "IMAGE/fresh/BloomBox Lily fresh 650.jpeg",
+        description: "Rangkaian bunga lily segar premium pilihan di dalam box eksklusif."
+    },
+
+    // --- BLOOM BOX (LAINNYA) ---
     {
         id: 1,
         name: "BlomBox Artificial Flower Drak Blue",
@@ -67,30 +213,6 @@ const products = [
         image: "IMAGE/BloomBox blue 300k.jpeg",
         description: "Bloom box nuansa biru segar nan menawan."
     },
-    {
-        id: 9,
-        name: "BloomBox Garbera",
-        category: "Bloom Box",
-        price: 500000,
-        image: "IMAGE/BloomBox garbera 500k.jpeg",
-        description: "Bloom box spesial bunga garbera ukuran besar dan mewah."
-    },
-    {
-        id: 10,
-        name: "BloomBox Lily",
-        category: "Bloom Box",
-        price: 650000,
-        image: "IMAGE/BloomBox Lily 650.jpeg",
-        description: "Rangkaian bunga lily premium pilihan di dalam box eksklusif."
-    },
-    {
-        id: 11,
-        name: "BloomBox Rose",
-        category: "Bloom Box",
-        price: 350000,
-        image: "IMAGE/BloomBox rose 350k.jpeg",
-        description: "Bloom box mawar pilihan yang cantik dan tahan lama."
-    },
 
     // --- BUKET BUNGA & KOREAN STYLE ---
     {
@@ -108,14 +230,6 @@ const products = [
         price: 120000,
         image: "IMAGE/Bouquet biru artificial 120k.jpeg",
         description: "Buket bunga artifisial warna biru cerah menyegarkan."
-    },
-    {
-        id: 14,
-        name: "Bouquet Blue Luxury",
-        category: "Buket Bunga",
-        price: 700000,
-        image: "IMAGE/Bouquet blue 700k.jpeg",
-        description: "Buket besar nuansa biru mewah untuk momen sangat spesial."
     },
     {
         id: 15,
@@ -156,30 +270,6 @@ const products = [
         price: 1000000,
         image: "IMAGE/Bouquet forrero 50 pcs 1 jt.jpeg",
         description: "Buket raksasa berisi 50 pcs cokelat Ferrero untuk kado spektakuler."
-    },
-    {
-        id: 20,
-        name: "Bouquet Garbera",
-        category: "Buket Bunga",
-        price: 350000,
-        image: "IMAGE/Bouquet garbera 350k.jpeg",
-        description: "Buket bunga garbera segar pilihan dengan balutan kertas cantik."
-    },
-    {
-        id: 21,
-        name: "Bouquet Garbera Mix Baby Breath",
-        category: "Buket Bunga",
-        price: 250000,
-        image: "IMAGE/Bouquet grabera mix baby breath 250k.jpeg",
-        description: "Perpaduan bunga garbera dan baby breath yang manis."
-    },
-    {
-        id: 22,
-        name: "Bouquet Krisan",
-        category: "Buket Bunga",
-        price: 280000,
-        image: "IMAGE/Bouquet kerisan 280k.jpeg",
-        description: "Rangkaian bunga krisan segar rimbun dan cantik."
     },
     {
         id: 23,
@@ -238,52 +328,12 @@ const products = [
         description: "Buket bunga lavender artifisial bernuansa ungu menenangkan."
     },
     {
-        id: 30,
-        name: "Bouquet Lily",
-        category: "Buket Bunga",
-        price: 600000,
-        image: "IMAGE/Bouquet Lily 600k1.jpeg",
-        description: "Buket bunga lily harum mewah dan berkelas."
-    },
-    {
-        id: 31,
-        name: "Bouquet Lily",
-        category: "Buket Bunga",
-        price: 600000,
-        image: "IMAGE/Bouquet Lily 600k.jpeg",
-        description: "Buket bunga lily pilihan."
-    },
-    {
         id: 32,
         name: "Bouquet Lily Artificial (XL)",
         category: "Buket Bunga",
         price: 400000,
         image: "IMAGE/Bouquet Lily artificial uk XL 400k.jpeg",
         description: "Buket lily ukuran XL artifisial tahan lama dan megah."
-    },
-    {
-        id: 33,
-        name: "Bouquet Lily Mix Rose",
-        category: "Buket Bunga",
-        price: 500000,
-        image: "IMAGE/Bouquet Lily mix rose 500k.jpeg",
-        description: "Kombinasi elegan antara bunga lily dan mawar."
-    },
-    {
-        id: 34,
-        name: "Bouquet Lily Round Luxury",
-        category: "Buket Bunga",
-        price: 1500000,
-        image: "IMAGE/Bouquet Lily round 1,5 jt.jpeg",
-        description: "Buket bundar lily eksklusif ukuran besar kelas premium."
-    },
-    {
-        id: 35,
-        name: "Bouquet Lily & Rose Mix",
-        category: "Buket Bunga",
-        price: 600000,
-        image: "IMAGE/Bouquet lily, rose 600k.jpeg",
-        description: "Rangkaian spesial bunga lily dan mawar segar berkualitas tinggi."
     },
     {
         id: 36,
@@ -308,14 +358,6 @@ const products = [
         price: 120000,
         image: "IMAGE/Bouquet pink artificial 120k.jpeg",
         description: "Buket artifisial warna pink ekonomis dan cantik."
-    },
-    {
-        id: 39,
-        name: "Bouquet Pom Pom",
-        category: "Buket Bunga",
-        price: 700000,
-        image: "IMAGE/Bouquet pom pom 700k.jpeg",
-        description: "Buket bunga krisan pom pom besar yang unik dan meriah."
     },
     {
         id: 40,
@@ -358,14 +400,6 @@ const products = [
         description: "Buket mawar warna lavender lembut."
     },
     {
-        id: 45,
-        name: "Bouquet Rose Mix Baby Breath",
-        category: "Buket Bunga",
-        price: 350000,
-        image: "IMAGE/Bouquet rose mix baby breath 350k.jpeg",
-        description: "Buket mawar cantik dikelilingi baby breath putih."
-    },
-    {
         id: 46,
         name: "Bouquet Rose Pink x Wrap Sage",
         category: "Buket Bunga",
@@ -388,14 +422,6 @@ const products = [
         price: 300000,
         image: "IMAGE/Bouquet rose putih artificial 300k.jpeg",
         description: "Buket mawar putih artifisial suci dan menawan."
-    },
-    {
-        id: 49,
-        name: "Bouquet Rose Red",
-        category: "Buket Bunga",
-        price: 400000,
-        image: "IMAGE/Bouquet rose red 400k.jpeg",
-        description: "Buket mawar merah klasik tanda cinta yang mewah."
     },
     {
         id: 50,
@@ -454,14 +480,6 @@ const products = [
         description: "Buket mawar bundar artifisial ukuran besar."
     },
     {
-        id: 57,
-        name: "Bouquet Sage",
-        category: "Buket Bunga",
-        price: 700000,
-        image: "IMAGE/Bouquet sage 700k.jpeg",
-        description: "Buket besar nuansa sage green mewah."
-    },
-    {
         id: 58,
         name: "Bouquet Sage Vintage",
         category: "Buket Bunga",
@@ -492,14 +510,6 @@ const products = [
         price: 450000,
         image: "IMAGE/Bouquet snack x taddy bear 450k.jpeg",
         description: "Buket snack komplit ukuran besar dengan boneka teddy bear."
-    },
-    {
-        id: 62,
-        name: "Bouquet Sunflower",
-        category: "Buket Bunga",
-        price: 300000,
-        image: "IMAGE/Bouquet sunflower 300k.jpeg",
-        description: "Buket bunga matahari cerah penyemangat hari."
     },
     {
         id: 63,
@@ -550,14 +560,6 @@ const products = [
         description: "Buket thumbelina ukuran XL ekstra besar."
     },
     {
-        id: 69,
-        name: "Handbouquet",
-        category: "Buket Bunga",
-        price: 250000,
-        image: "IMAGE/Handbouquet 250k.jpeg",
-        description: "Handbouquet cantik untuk pengantin atau acara resmi."
-    },
-    {
         id: 70,
         name: "Omakase Bouquet Artificial",
         category: "Buket Bunga",
@@ -605,6 +607,8 @@ const products = [
         image: "IMAGE/Vases flower artificial 300k.jpeg",
         description: "Dekorasi vas bunga artifisial elegan siap pajang."
     },
+
+    // --- BUKET UANG ---
     {
         id: 77,
         name: "Bouquet Money Round Rose Model 1",
@@ -845,6 +849,8 @@ const products = [
         image: "IMAGE/Bouquet money round rose/WhatsApp Image 2026-10-06 at 13.37.50.jpeg",
         description: "Buket uang bentuk lingkaran mewah dengan rangkaian mawar cantik."
     },
+
+    // --- BUKET SNACK & KOREAN STYLE BULAT ---
     {
         id: 107,
         name: "Bouquet Snack Random Model 1",
@@ -1136,7 +1142,7 @@ function updateWhatsAppLinkForMoney(name, grandTotalFormatted, details) {
     let message = `Halo Fatimah Florist, saya ingin memesan buket uang custom:%0A%0A`;
     message += `*Nama Produk:* ${name}%0A`;
     message += `*Pecahan Lembar Uang:* ${details.nominal}%0A`;
-    message += `*Jumlah Lembar:* ${details.sheets} lembar (%0A`;
+    message += `*Jumlah Lembar:* ${details.sheets} lembar%0A`;
     message += `Mohon info ketersediaan slot dan rincian harga total via chat ya. Terima kasih!`;
 
     modalWhatsApp.href = `https://wa.me/${adminWhatsApp}?text=${message}`;
@@ -1155,7 +1161,6 @@ categoryList.addEventListener('click', (e) => {
     }
 });
 
-searchInput.getElementById = document.getElementById('searchInput');
 if(searchInput) {
     searchInput.addEventListener('input', () => filterAndSearch());
 }
